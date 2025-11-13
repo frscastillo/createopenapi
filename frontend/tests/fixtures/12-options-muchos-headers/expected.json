@@ -1,0 +1,15 @@
+{
+  "path": "/v1/reporting/exports",
+  "method": "options",
+  "parameters": {
+    "header": [
+      "Access-Control-Request-Method",
+      "Access-Control-Request-Headers",
+      "Origin",
+      "X-Request-ID",
+      "X-Trace-Token",
+      "User-Agent"
+    ]
+  },
+  "responses": ["204", "401", "429"]
+}

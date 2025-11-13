@@ -1,0 +1,2837 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`transform(curl, responses) > genera OpenAPI válido para 01-get-con-query > case-01-get-con-query 1`] = `
+"openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Generated from CURL command
+servers:
+  - url: https://api.example.com
+    description: Server extracted from CURL command
+paths:
+  /v1/products:
+    get:
+      summary: GET endpoint
+      description: Generated from CURL command
+      tags:
+        - V1
+      parameters:
+        - name: category
+          in: query
+          required: false
+          schema:
+            type: string
+            example: electronics
+          description: category parameter
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: string
+            example: "2"
+          description: page parameter
+        - name: sort
+          in: query
+          required: false
+          schema:
+            type: string
+            example: price
+          description: sort parameter
+        - name: Accept
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+            example: application/json
+          description: Accept header parameter
+      responses:
+        "200":
+          description: Listado de productos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: prod_1001
+                        name:
+                          type: string
+                          example: Auriculares
+                        category:
+                          type: string
+                          example: electronics
+                        price:
+                          type: number
+                          example: 120.5
+                      required:
+                        - id
+                        - name
+                        - category
+                        - price
+                      example: &a1
+                        id: prod_1001
+                        name: Auriculares
+                        category: electronics
+                        price: 120.5
+                    example: &a2
+                      - *a1
+                  meta:
+                    type: object
+                    title: meta
+                    properties:
+                      page:
+                        type: number
+                        example: 2
+                      pageSize:
+                        type: number
+                        example: 25
+                      total:
+                        type: number
+                        example: 240
+                    required:
+                      - page
+                      - pageSize
+                      - total
+                    example: &a3
+                      page: 2
+                      pageSize: 25
+                      total: 240
+                required:
+                  - data
+                  - meta
+                example: &a4
+                  data: *a2
+                  meta: *a3
+              example: *a4
+        "404":
+          description: Sin resultados
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: not_found
+                  message:
+                    type: string
+                    example: Products not found
+                required:
+                  - error
+                  - message
+                example: &a5
+                  error: not_found
+                  message: Products not found
+              example: *a5
+"
+`;
+
+exports[`transform(curl, responses) > genera OpenAPI válido para 02-post-con-body > case-02-post-con-body 1`] = `
+"openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Generated from CURL command
+servers:
+  - url: https://api.example.com
+    description: Server extracted from CURL command
+paths:
+  /v1/users:
+    post:
+      summary: POST endpoint
+      description: Generated from CURL command
+      tags:
+        - V1
+      parameters:
+        - name: Content-Type
+          in: header
+          required: true
+          example: application/json
+          schema:
+            type: string
+            example: application/json
+          description: Content-Type header parameter
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Laura
+                email:
+                  type: string
+                  format: email
+                  example: laura@example.com
+              required:
+                - name
+                - email
+              example: &a1
+                name: Laura
+                email: laura@example.com
+            example: *a1
+      responses:
+        "201":
+          description: Usuario creado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: user_901
+                  name:
+                    type: string
+                    example: Laura
+                  email:
+                    type: string
+                    format: email
+                    example: laura@example.com
+                required:
+                  - id
+                  - name
+                  - email
+                example: &a2
+                  id: user_901
+                  name: Laura
+                  email: laura@example.com
+              example: *a2
+        "400":
+          description: Datos inválidos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: validation_error
+                  fields:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          example: email
+                        message:
+                          type: string
+                          example: Email inválido
+                      required:
+                        - name
+                        - message
+                      example: &a3
+                        name: email
+                        message: Email inválido
+                    example: &a4
+                      - *a3
+                required:
+                  - error
+                  - fields
+                example: &a5
+                  error: validation_error
+                  fields: *a4
+              example: *a5
+      security:
+        - bearerAuth: []
+components:
+  schemas:
+    RequestBody:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Laura
+        email:
+          type: string
+          format: email
+          example: laura@example.com
+      required:
+        - name
+        - email
+      example: *a1
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Bearer token authentication
+"
+`;
+
+exports[`transform(curl, responses) > genera OpenAPI válido para 03-put-con-path-param > case-03-put-con-path-param 1`] = `
+"openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Generated from CURL command
+servers:
+  - url: https://api.example.com
+    description: Server extracted from CURL command
+paths:
+  /v1/orders/{orderId}:
+    put:
+      summary: PUT endpoint
+      description: Generated from CURL command
+      tags:
+        - V1
+      parameters:
+        - name: Content-Type
+          in: header
+          required: true
+          example: application/json
+          schema:
+            type: string
+            example: application/json
+          description: Content-Type header parameter
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: orderId path parameter
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  example: shipped
+              required:
+                - status
+              example: &a1
+                status: shipped
+            example: *a1
+      responses:
+        "200":
+          description: Orden actualizada
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  orderId:
+                    type: string
+                    example: order_123
+                  status:
+                    type: string
+                    example: shipped
+                required:
+                  - orderId
+                  - status
+                example: &a2
+                  orderId: order_123
+                  status: shipped
+              example: *a2
+        "404":
+          description: Orden no encontrada
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: not_found
+                  message:
+                    type: string
+                    example: Order not found
+                required:
+                  - error
+                  - message
+                example: &a3
+                  error: not_found
+                  message: Order not found
+              example: *a3
+components:
+  schemas:
+    RequestBody:
+      type: object
+      properties:
+        status:
+          type: string
+          example: shipped
+      required:
+        - status
+      example: *a1
+"
+`;
+
+exports[`transform(curl, responses) > genera OpenAPI válido para 04-patch-form-data > case-04-patch-form-data 1`] = `
+"openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Generated from CURL command
+servers:
+  - url: https://api.example.com
+    description: Server extracted from CURL command
+paths:
+  /v1/files/{fileId}:
+    patch:
+      summary: PATCH endpoint
+      description: Generated from CURL command
+      tags:
+        - V1
+      parameters:
+        - name: Content-Type
+          in: header
+          required: true
+          schema:
+            type: string
+            example: multipart/form-data
+          description: Content Type header
+        - name: fileId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: fileId path parameter
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  example: archived
+                attachment:
+                  type: string
+                  format: binary
+                  description: attachment file upload
+              required:
+                - status
+                - attachment
+      responses:
+        "200":
+          description: Archivo actualizado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  fileId:
+                    type: string
+                    example: file_55
+                  status:
+                    type: string
+                    example: archived
+                required:
+                  - fileId
+                  - status
+                example: &a1
+                  fileId: file_55
+                  status: archived
+              example: *a1
+        "400":
+          description: Error de entrada
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: invalid_status
+                required:
+                  - error
+                example: &a2
+                  error: invalid_status
+              example: *a2
+      security:
+        - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Bearer token authentication
+"
+`;
+
+exports[`transform(curl, responses) > genera OpenAPI válido para 05-delete-simple > case-05-delete-simple 1`] = `
+"openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Generated from CURL command
+servers:
+  - url: https://api.example.com
+    description: Server extracted from CURL command
+paths:
+  /v1/sessions/{sessionId}:
+    delete:
+      summary: DELETE endpoint
+      description: Generated from CURL command
+      tags:
+        - V1
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: sessionId path parameter
+      responses:
+        "204":
+          description: Sesión eliminada
+        "404":
+          description: Sesión no encontrada
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: not_found
+                required:
+                  - error
+                example: &a1
+                  error: not_found
+              example: *a1
+      security:
+        - apikeyAuth: []
+components:
+  securitySchemes:
+    apikeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: API Key authentication via X-API-Key header
+"
+`;
+
+exports[`transform(curl, responses) > genera OpenAPI válido para 06-get-con-filtros > case-06-get-con-filtros 1`] = `
+"openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Generated from CURL command
+servers:
+  - url: https://api.example.com
+    description: Server extracted from CURL command
+paths:
+  /v1/products/search:
+    get:
+      summary: GET endpoint
+      description: Generated from CURL command
+      tags:
+        - V1
+      parameters:
+        - name: keyword
+          in: query
+          required: true
+          schema:
+            type: string
+            example: laptop
+          description: keyword parameter
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: string
+            example: "10"
+          description: limit parameter
+        - name: include
+          in: query
+          required: false
+          schema:
+            type: string
+            example: reviews
+          description: include parameter
+        - name: locale
+          in: query
+          required: false
+          schema:
+            type: string
+            example: es-AR
+          description: locale parameter
+        - name: Accept
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+            example: application/json
+          description: Accept header parameter
+        - name: X-Correlation-ID
+          in: header
+          required: true
+          example: abc-123
+          schema:
+            type: string
+            example: abc-123
+          description: X-Correlation-ID header parameter
+      responses:
+        "200":
+          description: Resultados principales
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        sku:
+                          type: string
+                          example: lap-001
+                        title:
+                          type: string
+                          example: Laptop Pro 15
+                        price:
+                          type: number
+                          example: 1899.99
+                        rating:
+                          type: number
+                          example: 4.8
+                      required:
+                        - sku
+                        - title
+                        - price
+                        - rating
+                      example: &a1
+                        sku: lap-001
+                        title: Laptop Pro 15
+                        price: 1899.99
+                        rating: 4.8
+                    example: &a2
+                      - *a1
+                  count:
+                    type: number
+                    example: 1
+                  total:
+                    type: number
+                    example: 137
+                required:
+                  - items
+                  - count
+                  - total
+                example: &a3
+                  items: *a2
+                  count: 1
+                  total: 137
+              example: *a3
+        "206":
+          description: Resultados paginados
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties: {}
+                      example: {}
+                    example: &a4 []
+                  count:
+                    type: number
+                    example: 0
+                  total:
+                    type: number
+                    example: 137
+                  message:
+                    type: string
+                    example: Partial content
+                required:
+                  - items
+                  - count
+                  - total
+                  - message
+                example: &a5
+                  items: *a4
+                  count: 0
+                  total: 137
+                  message: Partial content
+              example: *a5
+        "429":
+          description: Demasiadas solicitudes
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: rate_limited
+                  retryAfter:
+                    type: number
+                    example: 30
+                required:
+                  - error
+                  - retryAfter
+                example: &a6
+                  error: rate_limited
+                  retryAfter: 30
+              example: *a6
+"
+`;
+
+exports[`transform(curl, responses) > genera OpenAPI válido para 07-post-con-body-bulk > case-07-post-con-body-bulk 1`] = `
+"openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Generated from CURL command
+servers:
+  - url: https://api.example.com
+    description: Server extracted from CURL command
+paths:
+  /v1/orders/bulk:
+    post:
+      summary: POST endpoint
+      description: Generated from CURL command
+      tags:
+        - V1
+      parameters:
+        - name: Content-Type
+          in: header
+          required: true
+          example: application/json
+          schema:
+            type: string
+            example: application/json
+          description: Content-Type header parameter
+        - name: X-Idempotency-Key
+          in: header
+          required: true
+          example: bulk-789
+          schema:
+            type: string
+            example: bulk-789
+          description: X-Idempotency-Key header parameter
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orders:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: order-200
+                      items:
+                        type: number
+                        example: 2
+                    required:
+                      - id
+                      - items
+                    example: &a1
+                      id: order-200
+                      items: 2
+                  example: &a2
+                    - *a1
+                    - id: order-201
+                      items: 1
+              required:
+                - orders
+              example: &a3
+                orders: *a2
+            example: *a3
+      responses:
+        "202":
+          description: Órdenes aceptadas para procesamiento
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accepted:
+                    type: number
+                    example: 2
+                  batchId:
+                    type: string
+                    example: batch-1000
+                  status:
+                    type: string
+                    example: processing
+                required:
+                  - accepted
+                  - batchId
+                  - status
+                example: &a4
+                  accepted: 2
+                  batchId: batch-1000
+                  status: processing
+              example: *a4
+        "207":
+          description: Órdenes procesadas parcialmente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  processed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        orderId:
+                          type: string
+                          example: order-200
+                        status:
+                          type: string
+                          example: created
+                      required:
+                        - orderId
+                        - status
+                      example: &a5
+                        orderId: order-200
+                        status: created
+                    example: &a7
+                      - *a5
+                  failed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        orderId:
+                          type: string
+                          example: order-201
+                        reason:
+                          type: string
+                          example: out_of_stock
+                      required:
+                        - orderId
+                        - reason
+                      example: &a6
+                        orderId: order-201
+                        reason: out_of_stock
+                    example: &a8
+                      - *a6
+                required:
+                  - processed
+                  - failed
+                example: &a9
+                  processed: *a7
+                  failed: *a8
+              example: *a9
+        "409":
+          description: Conflicto por idempotencia
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: duplicate_batch
+                  message:
+                    type: string
+                    example: Batch already processed
+                required:
+                  - error
+                  - message
+                example: &a10
+                  error: duplicate_batch
+                  message: Batch already processed
+              example: *a10
+      security:
+        - bearerAuth: []
+components:
+  schemas:
+    RequestBody:
+      type: object
+      properties:
+        orders:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: order-200
+              items:
+                type: number
+                example: 2
+            required:
+              - id
+              - items
+            example: *a1
+          example: *a2
+      required:
+        - orders
+      example: *a3
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Bearer token authentication
+"
+`;
+
+exports[`transform(curl, responses) > genera OpenAPI válido para 08-put-con-path-compuesto > case-08-put-con-path-compuesto 1`] = `
+"openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Generated from CURL command
+servers:
+  - url: https://api.example.com
+    description: Server extracted from CURL command
+paths:
+  /v1/customers/{customerId}/addresses/{addressId}:
+    put:
+      summary: PUT endpoint
+      description: Generated from CURL command
+      tags:
+        - V1
+      parameters:
+        - name: Content-Type
+          in: header
+          required: true
+          example: application/json
+          schema:
+            type: string
+            example: application/json
+          description: Content-Type header parameter
+        - name: customerId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: customerId path parameter
+        - name: addressId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: addressId path parameter
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                street:
+                  type: string
+                  example: Calle Falsa 123
+                city:
+                  type: string
+                  example: Buenos Aires
+                primary:
+                  type: boolean
+                  example: true
+              required:
+                - street
+                - city
+                - primary
+              example: &a1
+                street: Calle Falsa 123
+                city: Buenos Aires
+                primary: true
+            example: *a1
+      responses:
+        "200":
+          description: Dirección actualizada
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  addressId:
+                    type: string
+                    example: address-1
+                  customerId:
+                    type: string
+                    example: cust-900
+                  primary:
+                    type: boolean
+                    example: true
+                required:
+                  - addressId
+                  - primary
+                example: &a2
+                  addressId: address-1
+                  customerId: cust-900
+                  primary: true
+              example: *a2
+        "400":
+          description: Datos incompletos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: invalid_payload
+                  missing:
+                    type: array
+                    items:
+                      type: string
+                      example: street
+                    example: &a3
+                      - street
+                required:
+                  - error
+                  - missing
+                example: &a4
+                  error: invalid_payload
+                  missing: *a3
+              example: *a4
+        "409":
+          description: Conflicto de dirección
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: primary_exists
+                  message:
+                    type: string
+                    example: Another primary address already exists
+                required:
+                  - error
+                  - message
+                example: &a5
+                  error: primary_exists
+                  message: Another primary address already exists
+              example: *a5
+components:
+  schemas:
+    RequestBody:
+      type: object
+      properties:
+        street:
+          type: string
+          example: Calle Falsa 123
+        city:
+          type: string
+          example: Buenos Aires
+        primary:
+          type: boolean
+          example: true
+      required:
+        - street
+        - city
+        - primary
+      example: *a1
+"
+`;
+
+exports[`transform(curl, responses) > genera OpenAPI válido para 09-patch-form-data-avatar > case-09-patch-form-data-avatar 1`] = `
+"openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Generated from CURL command
+servers:
+  - url: https://api.example.com
+    description: Server extracted from CURL command
+paths:
+  /v1/users/{userId}/profile:
+    patch:
+      summary: PATCH endpoint
+      description: Generated from CURL command
+      tags:
+        - V1
+      parameters:
+        - name: Content-Type
+          in: header
+          required: true
+          schema:
+            type: string
+            example: multipart/form-data
+          description: Content Type header
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: userId path parameter
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                displayName:
+                  type: string
+                  example: Marcos
+                avatar:
+                  type: string
+                  format: binary
+                  description: avatar file upload
+                preferences:
+                  type: string
+                  example: "{\\\\"
+              required:
+                - displayName
+                - avatar
+                - preferences
+      responses:
+        "200":
+          description: Perfil actualizado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  userId:
+                    type: string
+                    example: user-55
+                  displayName:
+                    type: string
+                    example: Marcos
+                  avatarUrl:
+                    type: string
+                    format: uri
+                    example: https://cdn.example.com/avatar/user-55.png
+                required:
+                  - userId
+                  - displayName
+                  - avatarUrl
+                example: &a1
+                  userId: user-55
+                  displayName: Marcos
+                  avatarUrl: https://cdn.example.com/avatar/user-55.png
+              example: *a1
+        "400":
+          description: Campos inválidos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: invalid_field
+                  field:
+                    type: string
+                    example: preferences
+                required:
+                  - error
+                  - field
+                example: &a2
+                  error: invalid_field
+                  field: preferences
+              example: *a2
+        "401":
+          description: Token inválido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: unauthorized
+                required:
+                  - error
+                example: &a3
+                  error: unauthorized
+              example: *a3
+      security:
+        - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Bearer token authentication
+"
+`;
+
+exports[`transform(curl, responses) > genera OpenAPI válido para 10-delete-con-headers > case-10-delete-con-headers 1`] = `
+"openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Generated from CURL command
+servers:
+  - url: https://api.example.com
+    description: Server extracted from CURL command
+paths:
+  /v1/tokens/{tokenId}:
+    delete:
+      summary: DELETE endpoint
+      description: Generated from CURL command
+      tags:
+        - V1
+      parameters:
+        - name: X-Requested-By
+          in: header
+          required: true
+          example: admin-console
+          schema:
+            type: string
+            example: admin-console
+          description: X-Requested-By header parameter
+        - name: tokenId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: tokenId path parameter
+      responses:
+        "204":
+          description: Token revocado
+        "403":
+          description: API Key inválida
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: forbidden
+                  message:
+                    type: string
+                    example: Invalid API key
+                required:
+                  - error
+                  - message
+                example: &a1
+                  error: forbidden
+                  message: Invalid API key
+              example: *a1
+        "404":
+          description: Token no encontrado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: not_found
+                required:
+                  - error
+                example: &a2
+                  error: not_found
+              example: *a2
+      security:
+        - apikeyAuth: []
+components:
+  securitySchemes:
+    apikeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: API Key authentication via X-API-Key header
+"
+`;
+
+exports[`transform(curl, responses) > genera OpenAPI válido para 11-head-sin-responses > case-11-head-sin-responses 1`] = `
+"openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Generated from CURL command
+servers:
+  - url: https://api.example.com
+    description: Server extracted from CURL command
+paths:
+  /v1/resources/{resourceId}:
+    head:
+      summary: HEAD endpoint
+      description: Generated from CURL command
+      tags:
+        - V1
+      parameters:
+        - name: If-None-Match
+          in: header
+          required: false
+          example: W/\\
+          schema:
+            type: string
+            example: W/\\
+          description: If-None-Match header parameter
+        - name: resourceId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: resourceId path parameter
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Operation completed successfully
+"
+`;
+
+exports[`transform(curl, responses) > genera OpenAPI válido para 12-options-muchos-headers > case-12-options-muchos-headers 1`] = `
+"openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Generated from CURL command
+servers:
+  - url: https://api.example.com
+    description: Server extracted from CURL command
+paths:
+  /v1/reporting/exports:
+    options:
+      summary: OPTIONS endpoint
+      description: Generated from CURL command
+      tags:
+        - V1
+      parameters:
+        - name: Access-Control-Request-Method
+          in: header
+          required: false
+          example: POST
+          schema:
+            type: string
+            example: POST
+          description: Access-Control-Request-Method header parameter
+        - name: Access-Control-Request-Headers
+          in: header
+          required: false
+          example: Authorization, X-Request-ID, X-Trace-Token, Content-Type
+          schema:
+            type: string
+            example: Authorization, X-Request-ID, X-Trace-Token, Content-Type
+          description: Access-Control-Request-Headers header parameter
+        - name: Origin
+          in: header
+          required: false
+          example: https://app.example.com
+          schema:
+            type: string
+            example: https://app.example.com
+          description: Origin header parameter
+        - name: X-Request-ID
+          in: header
+          required: true
+          example: req-123456
+          schema:
+            type: string
+            example: req-123456
+          description: X-Request-ID header parameter
+        - name: X-Trace-Token
+          in: header
+          required: true
+          example: trace-abc-xyz
+          schema:
+            type: string
+            example: trace-abc-xyz
+          description: X-Trace-Token header parameter
+        - name: User-Agent
+          in: header
+          required: false
+          example: stress-suite/1.0
+          schema:
+            type: string
+            example: stress-suite/1.0
+          description: User-Agent header parameter
+      responses:
+        "204":
+          description: Preflight permitido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  allow:
+                    type: array
+                    items:
+                      type: string
+                      example: POST
+                    example: &a1
+                      - POST
+                  maxAge:
+                    type: number
+                    example: 600
+                required:
+                  - allow
+                  - maxAge
+                example: &a2
+                  allow: *a1
+                  maxAge: 600
+              example: *a2
+        "401":
+          description: Token ausente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: unauthorized
+                required:
+                  - error
+                example: &a3
+                  error: unauthorized
+              example: *a3
+        "429":
+          description: Límite de preflight excedido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: too_many_requests
+                required:
+                  - error
+                example: &a4
+                  error: too_many_requests
+              example: *a4
+"
+`;
+
+exports[`transform(curl, responses) genera OpenAPI válido para 01-get-con-query: case-01-get-con-query 1`] = `
+"openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Generated from CURL command
+servers:
+  - url: https://api.example.com
+    description: Server extracted from CURL command
+paths:
+  /v1/products:
+    get:
+      summary: GET endpoint
+      description: Generated from CURL command
+      tags:
+        - V1
+      parameters:
+        - name: category
+          in: query
+          required: false
+          schema:
+            type: string
+            example: electronics
+          description: category parameter
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: string
+            example: "2"
+          description: page parameter
+        - name: sort
+          in: query
+          required: false
+          schema:
+            type: string
+            example: price
+          description: sort parameter
+        - name: Accept
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+            example: application/json
+          description: Accept header parameter
+      responses:
+        "200":
+          description: Listado de productos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: prod_1001
+                        name:
+                          type: string
+                          example: Auriculares
+                        category:
+                          type: string
+                          example: electronics
+                        price:
+                          type: number
+                          example: 120.5
+                      required:
+                        - id
+                        - name
+                        - category
+                        - price
+                      example: &a1
+                        id: prod_1001
+                        name: Auriculares
+                        category: electronics
+                        price: 120.5
+                    example: &a2
+                      - *a1
+                  meta:
+                    type: object
+                    title: meta
+                    properties:
+                      page:
+                        type: number
+                        example: 2
+                      pageSize:
+                        type: number
+                        example: 25
+                      total:
+                        type: number
+                        example: 240
+                    required:
+                      - page
+                      - pageSize
+                      - total
+                    example: &a3
+                      page: 2
+                      pageSize: 25
+                      total: 240
+                required:
+                  - data
+                  - meta
+                example: &a4
+                  data: *a2
+                  meta: *a3
+              example: *a4
+        "404":
+          description: Sin resultados
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: not_found
+                  message:
+                    type: string
+                    example: Products not found
+                required:
+                  - error
+                  - message
+                example: &a5
+                  error: not_found
+                  message: Products not found
+              example: *a5
+"
+`;
+
+exports[`transform(curl, responses) genera OpenAPI válido para 02-post-con-body: case-02-post-con-body 1`] = `
+"openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Generated from CURL command
+servers:
+  - url: https://api.example.com
+    description: Server extracted from CURL command
+paths:
+  /v1/users:
+    post:
+      summary: POST endpoint
+      description: Generated from CURL command
+      tags:
+        - V1
+      parameters:
+        - name: Content-Type
+          in: header
+          required: true
+          example: application/json
+          schema:
+            type: string
+            example: application/json
+          description: Content-Type header parameter
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Laura
+                email:
+                  type: string
+                  format: email
+                  example: laura@example.com
+              required:
+                - name
+                - email
+              example: &a1
+                name: Laura
+                email: laura@example.com
+            example: *a1
+      responses:
+        "201":
+          description: Usuario creado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: user_901
+                  name:
+                    type: string
+                    example: Laura
+                  email:
+                    type: string
+                    format: email
+                    example: laura@example.com
+                required:
+                  - id
+                  - name
+                  - email
+                example: &a2
+                  id: user_901
+                  name: Laura
+                  email: laura@example.com
+              example: *a2
+        "400":
+          description: Datos inválidos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: validation_error
+                  fields:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          example: email
+                        message:
+                          type: string
+                          example: Email inválido
+                      required:
+                        - name
+                        - message
+                      example: &a3
+                        name: email
+                        message: Email inválido
+                    example: &a4
+                      - *a3
+                required:
+                  - error
+                  - fields
+                example: &a5
+                  error: validation_error
+                  fields: *a4
+              example: *a5
+      security:
+        - bearerAuth: []
+components:
+  schemas:
+    RequestBody:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Laura
+        email:
+          type: string
+          format: email
+          example: laura@example.com
+      required:
+        - name
+        - email
+      example: *a1
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Bearer token authentication
+"
+`;
+
+exports[`transform(curl, responses) genera OpenAPI válido para 03-put-con-path-param: case-03-put-con-path-param 1`] = `
+"openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Generated from CURL command
+servers:
+  - url: https://api.example.com
+    description: Server extracted from CURL command
+paths:
+  /v1/orders/{orderId}:
+    put:
+      summary: PUT endpoint
+      description: Generated from CURL command
+      tags:
+        - V1
+      parameters:
+        - name: Content-Type
+          in: header
+          required: true
+          example: application/json
+          schema:
+            type: string
+            example: application/json
+          description: Content-Type header parameter
+        - name: orderId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: orderId path parameter
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  example: shipped
+              required:
+                - status
+              example: &a1
+                status: shipped
+            example: *a1
+      responses:
+        "200":
+          description: Orden actualizada
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  orderId:
+                    type: string
+                    example: order_123
+                  status:
+                    type: string
+                    example: shipped
+                required:
+                  - orderId
+                  - status
+                example: &a2
+                  orderId: order_123
+                  status: shipped
+              example: *a2
+        "404":
+          description: Orden no encontrada
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: not_found
+                  message:
+                    type: string
+                    example: Order not found
+                required:
+                  - error
+                  - message
+                example: &a3
+                  error: not_found
+                  message: Order not found
+              example: *a3
+components:
+  schemas:
+    RequestBody:
+      type: object
+      properties:
+        status:
+          type: string
+          example: shipped
+      required:
+        - status
+      example: *a1
+"
+`;
+
+exports[`transform(curl, responses) genera OpenAPI válido para 04-patch-form-data: case-04-patch-form-data 1`] = `
+"openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Generated from CURL command
+servers:
+  - url: https://api.example.com
+    description: Server extracted from CURL command
+paths:
+  /v1/files/{fileId}:
+    patch:
+      summary: PATCH endpoint
+      description: Generated from CURL command
+      tags:
+        - V1
+      parameters:
+        - name: Content-Type
+          in: header
+          required: true
+          schema:
+            type: string
+            example: multipart/form-data
+          description: Content Type header
+        - name: fileId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: fileId path parameter
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  example: archived
+                attachment:
+                  type: string
+                  format: binary
+                  description: attachment file upload
+              required:
+                - status
+                - attachment
+      responses:
+        "200":
+          description: Archivo actualizado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  fileId:
+                    type: string
+                    example: file_55
+                  status:
+                    type: string
+                    example: archived
+                required:
+                  - fileId
+                  - status
+                example: &a1
+                  fileId: file_55
+                  status: archived
+              example: *a1
+        "400":
+          description: Error de entrada
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: invalid_status
+                required:
+                  - error
+                example: &a2
+                  error: invalid_status
+              example: *a2
+      security:
+        - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Bearer token authentication
+"
+`;
+
+exports[`transform(curl, responses) genera OpenAPI válido para 05-delete-simple: case-05-delete-simple 1`] = `
+"openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Generated from CURL command
+servers:
+  - url: https://api.example.com
+    description: Server extracted from CURL command
+paths:
+  /v1/sessions/{sessionId}:
+    delete:
+      summary: DELETE endpoint
+      description: Generated from CURL command
+      tags:
+        - V1
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: sessionId path parameter
+      responses:
+        "204":
+          description: Sesión eliminada
+        "404":
+          description: Sesión no encontrada
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: not_found
+                required:
+                  - error
+                example: &a1
+                  error: not_found
+              example: *a1
+      security:
+        - apikeyAuth: []
+components:
+  securitySchemes:
+    apikeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: API Key authentication via X-API-Key header
+"
+`;
+
+exports[`transform(curl, responses) genera OpenAPI válido para 06-get-con-filtros: case-06-get-con-filtros 1`] = `
+"openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Generated from CURL command
+servers:
+  - url: https://api.example.com
+    description: Server extracted from CURL command
+paths:
+  /v1/products/search:
+    get:
+      summary: GET endpoint
+      description: Generated from CURL command
+      tags:
+        - V1
+      parameters:
+        - name: keyword
+          in: query
+          required: true
+          schema:
+            type: string
+            example: laptop
+          description: keyword parameter
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: string
+            example: "10"
+          description: limit parameter
+        - name: include
+          in: query
+          required: false
+          schema:
+            type: string
+            example: reviews
+          description: include parameter
+        - name: locale
+          in: query
+          required: false
+          schema:
+            type: string
+            example: es-AR
+          description: locale parameter
+        - name: Accept
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+            example: application/json
+          description: Accept header parameter
+        - name: X-Correlation-ID
+          in: header
+          required: true
+          example: abc-123
+          schema:
+            type: string
+            example: abc-123
+          description: X-Correlation-ID header parameter
+      responses:
+        "200":
+          description: Resultados principales
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        sku:
+                          type: string
+                          example: lap-001
+                        title:
+                          type: string
+                          example: Laptop Pro 15
+                        price:
+                          type: number
+                          example: 1899.99
+                        rating:
+                          type: number
+                          example: 4.8
+                      required:
+                        - sku
+                        - title
+                        - price
+                        - rating
+                      example: &a1
+                        sku: lap-001
+                        title: Laptop Pro 15
+                        price: 1899.99
+                        rating: 4.8
+                    example: &a2
+                      - *a1
+                  count:
+                    type: number
+                    example: 1
+                  total:
+                    type: number
+                    example: 137
+                required:
+                  - items
+                  - count
+                  - total
+                example: &a3
+                  items: *a2
+                  count: 1
+                  total: 137
+              example: *a3
+        "206":
+          description: Resultados paginados
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties: {}
+                      example: {}
+                    example: &a4 []
+                  count:
+                    type: number
+                    example: 0
+                  total:
+                    type: number
+                    example: 137
+                  message:
+                    type: string
+                    example: Partial content
+                required:
+                  - items
+                  - count
+                  - total
+                  - message
+                example: &a5
+                  items: *a4
+                  count: 0
+                  total: 137
+                  message: Partial content
+              example: *a5
+        "429":
+          description: Demasiadas solicitudes
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: rate_limited
+                  retryAfter:
+                    type: number
+                    example: 30
+                required:
+                  - error
+                  - retryAfter
+                example: &a6
+                  error: rate_limited
+                  retryAfter: 30
+              example: *a6
+"
+`;
+
+exports[`transform(curl, responses) genera OpenAPI válido para 07-post-con-body-bulk: case-07-post-con-body-bulk 1`] = `
+"openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Generated from CURL command
+servers:
+  - url: https://api.example.com
+    description: Server extracted from CURL command
+paths:
+  /v1/orders/bulk:
+    post:
+      summary: POST endpoint
+      description: Generated from CURL command
+      tags:
+        - V1
+      parameters:
+        - name: Content-Type
+          in: header
+          required: true
+          example: application/json
+          schema:
+            type: string
+            example: application/json
+          description: Content-Type header parameter
+        - name: X-Idempotency-Key
+          in: header
+          required: true
+          example: bulk-789
+          schema:
+            type: string
+            example: bulk-789
+          description: X-Idempotency-Key header parameter
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orders:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: order-200
+                      items:
+                        type: number
+                        example: 2
+                    required:
+                      - id
+                      - items
+                    example: &a1
+                      id: order-200
+                      items: 2
+                  example: &a2
+                    - *a1
+                    - id: order-201
+                      items: 1
+              required:
+                - orders
+              example: &a3
+                orders: *a2
+            example: *a3
+      responses:
+        "202":
+          description: Órdenes aceptadas para procesamiento
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  accepted:
+                    type: number
+                    example: 2
+                  batchId:
+                    type: string
+                    example: batch-1000
+                  status:
+                    type: string
+                    example: processing
+                required:
+                  - accepted
+                  - batchId
+                  - status
+                example: &a4
+                  accepted: 2
+                  batchId: batch-1000
+                  status: processing
+              example: *a4
+        "207":
+          description: Órdenes procesadas parcialmente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  processed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        orderId:
+                          type: string
+                          example: order-200
+                        status:
+                          type: string
+                          example: created
+                      required:
+                        - orderId
+                        - status
+                      example: &a5
+                        orderId: order-200
+                        status: created
+                    example: &a7
+                      - *a5
+                  failed:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        orderId:
+                          type: string
+                          example: order-201
+                        reason:
+                          type: string
+                          example: out_of_stock
+                      required:
+                        - orderId
+                        - reason
+                      example: &a6
+                        orderId: order-201
+                        reason: out_of_stock
+                    example: &a8
+                      - *a6
+                required:
+                  - processed
+                  - failed
+                example: &a9
+                  processed: *a7
+                  failed: *a8
+              example: *a9
+        "409":
+          description: Conflicto por idempotencia
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: duplicate_batch
+                  message:
+                    type: string
+                    example: Batch already processed
+                required:
+                  - error
+                  - message
+                example: &a10
+                  error: duplicate_batch
+                  message: Batch already processed
+              example: *a10
+      security:
+        - bearerAuth: []
+components:
+  schemas:
+    RequestBody:
+      type: object
+      properties:
+        orders:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: order-200
+              items:
+                type: number
+                example: 2
+            required:
+              - id
+              - items
+            example: *a1
+          example: *a2
+      required:
+        - orders
+      example: *a3
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Bearer token authentication
+"
+`;
+
+exports[`transform(curl, responses) genera OpenAPI válido para 08-put-con-path-compuesto: case-08-put-con-path-compuesto 1`] = `
+"openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Generated from CURL command
+servers:
+  - url: https://api.example.com
+    description: Server extracted from CURL command
+paths:
+  /v1/customers/{customerId}/addresses/{addressId}:
+    put:
+      summary: PUT endpoint
+      description: Generated from CURL command
+      tags:
+        - V1
+      parameters:
+        - name: Content-Type
+          in: header
+          required: true
+          example: application/json
+          schema:
+            type: string
+            example: application/json
+          description: Content-Type header parameter
+        - name: customerId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: customerId path parameter
+        - name: addressId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: addressId path parameter
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                street:
+                  type: string
+                  example: Calle Falsa 123
+                city:
+                  type: string
+                  example: Buenos Aires
+                primary:
+                  type: boolean
+                  example: true
+              required:
+                - street
+                - city
+                - primary
+              example: &a1
+                street: Calle Falsa 123
+                city: Buenos Aires
+                primary: true
+            example: *a1
+      responses:
+        "200":
+          description: Dirección actualizada
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  addressId:
+                    type: string
+                    example: address-1
+                  customerId:
+                    type: string
+                    example: cust-900
+                  primary:
+                    type: boolean
+                    example: true
+                required:
+                  - addressId
+                  - primary
+                example: &a2
+                  addressId: address-1
+                  customerId: cust-900
+                  primary: true
+              example: *a2
+        "400":
+          description: Datos incompletos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: invalid_payload
+                  missing:
+                    type: array
+                    items:
+                      type: string
+                      example: street
+                    example: &a3
+                      - street
+                required:
+                  - error
+                  - missing
+                example: &a4
+                  error: invalid_payload
+                  missing: *a3
+              example: *a4
+        "409":
+          description: Conflicto de dirección
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: primary_exists
+                  message:
+                    type: string
+                    example: Another primary address already exists
+                required:
+                  - error
+                  - message
+                example: &a5
+                  error: primary_exists
+                  message: Another primary address already exists
+              example: *a5
+components:
+  schemas:
+    RequestBody:
+      type: object
+      properties:
+        street:
+          type: string
+          example: Calle Falsa 123
+        city:
+          type: string
+          example: Buenos Aires
+        primary:
+          type: boolean
+          example: true
+      required:
+        - street
+        - city
+        - primary
+      example: *a1
+"
+`;
+
+exports[`transform(curl, responses) genera OpenAPI válido para 09-patch-form-data-avatar: case-09-patch-form-data-avatar 1`] = `
+"openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Generated from CURL command
+servers:
+  - url: https://api.example.com
+    description: Server extracted from CURL command
+paths:
+  /v1/users/{userId}/profile:
+    patch:
+      summary: PATCH endpoint
+      description: Generated from CURL command
+      tags:
+        - V1
+      parameters:
+        - name: Content-Type
+          in: header
+          required: true
+          schema:
+            type: string
+            example: multipart/form-data
+          description: Content Type header
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: userId path parameter
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                displayName:
+                  type: string
+                  example: Marcos
+                avatar:
+                  type: string
+                  format: binary
+                  description: avatar file upload
+                preferences:
+                  type: string
+                  example: "{\\\\"
+              required:
+                - displayName
+                - avatar
+                - preferences
+      responses:
+        "200":
+          description: Perfil actualizado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  userId:
+                    type: string
+                    example: user-55
+                  displayName:
+                    type: string
+                    example: Marcos
+                  avatarUrl:
+                    type: string
+                    format: uri
+                    example: https://cdn.example.com/avatar/user-55.png
+                required:
+                  - userId
+                  - displayName
+                  - avatarUrl
+                example: &a1
+                  userId: user-55
+                  displayName: Marcos
+                  avatarUrl: https://cdn.example.com/avatar/user-55.png
+              example: *a1
+        "400":
+          description: Campos inválidos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: invalid_field
+                  field:
+                    type: string
+                    example: preferences
+                required:
+                  - error
+                  - field
+                example: &a2
+                  error: invalid_field
+                  field: preferences
+              example: *a2
+        "401":
+          description: Token inválido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: unauthorized
+                required:
+                  - error
+                example: &a3
+                  error: unauthorized
+              example: *a3
+      security:
+        - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Bearer token authentication
+"
+`;
+
+exports[`transform(curl, responses) genera OpenAPI válido para 10-delete-con-headers: case-10-delete-con-headers 1`] = `
+"openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Generated from CURL command
+servers:
+  - url: https://api.example.com
+    description: Server extracted from CURL command
+paths:
+  /v1/tokens/{tokenId}:
+    delete:
+      summary: DELETE endpoint
+      description: Generated from CURL command
+      tags:
+        - V1
+      parameters:
+        - name: X-Requested-By
+          in: header
+          required: true
+          example: admin-console
+          schema:
+            type: string
+            example: admin-console
+          description: X-Requested-By header parameter
+        - name: tokenId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: tokenId path parameter
+      responses:
+        "204":
+          description: Token revocado
+        "403":
+          description: API Key inválida
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: forbidden
+                  message:
+                    type: string
+                    example: Invalid API key
+                required:
+                  - error
+                  - message
+                example: &a1
+                  error: forbidden
+                  message: Invalid API key
+              example: *a1
+        "404":
+          description: Token no encontrado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: not_found
+                required:
+                  - error
+                example: &a2
+                  error: not_found
+              example: *a2
+      security:
+        - apikeyAuth: []
+components:
+  securitySchemes:
+    apikeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: API Key authentication via X-API-Key header
+"
+`;
+
+exports[`transform(curl, responses) genera OpenAPI válido para 11-head-sin-responses: case-11-head-sin-responses 1`] = `
+"openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Generated from CURL command
+servers:
+  - url: https://api.example.com
+    description: Server extracted from CURL command
+paths:
+  /v1/resources/{resourceId}:
+    head:
+      summary: HEAD endpoint
+      description: Generated from CURL command
+      tags:
+        - V1
+      parameters:
+        - name: If-None-Match
+          in: header
+          required: false
+          example: W/\\
+          schema:
+            type: string
+            example: W/\\
+          description: If-None-Match header parameter
+        - name: resourceId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: resourceId path parameter
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  message:
+                    type: string
+                    example: Operation completed successfully
+"
+`;
+
+exports[`transform(curl, responses) genera OpenAPI válido para 12-options-muchos-headers: case-12-options-muchos-headers 1`] = `
+"openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+  description: Generated from CURL command
+servers:
+  - url: https://api.example.com
+    description: Server extracted from CURL command
+paths:
+  /v1/reporting/exports:
+    options:
+      summary: OPTIONS endpoint
+      description: Generated from CURL command
+      tags:
+        - V1
+      parameters:
+        - name: Access-Control-Request-Method
+          in: header
+          required: false
+          example: POST
+          schema:
+            type: string
+            example: POST
+          description: Access-Control-Request-Method header parameter
+        - name: Access-Control-Request-Headers
+          in: header
+          required: false
+          example: Authorization, X-Request-ID, X-Trace-Token, Content-Type
+          schema:
+            type: string
+            example: Authorization, X-Request-ID, X-Trace-Token, Content-Type
+          description: Access-Control-Request-Headers header parameter
+        - name: Origin
+          in: header
+          required: false
+          example: https://app.example.com
+          schema:
+            type: string
+            example: https://app.example.com
+          description: Origin header parameter
+        - name: X-Request-ID
+          in: header
+          required: true
+          example: req-123456
+          schema:
+            type: string
+            example: req-123456
+          description: X-Request-ID header parameter
+        - name: X-Trace-Token
+          in: header
+          required: true
+          example: trace-abc-xyz
+          schema:
+            type: string
+            example: trace-abc-xyz
+          description: X-Trace-Token header parameter
+        - name: User-Agent
+          in: header
+          required: false
+          example: stress-suite/1.0
+          schema:
+            type: string
+            example: stress-suite/1.0
+          description: User-Agent header parameter
+      responses:
+        "204":
+          description: Preflight permitido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  allow:
+                    type: array
+                    items:
+                      type: string
+                      example: POST
+                    example: &a1
+                      - POST
+                  maxAge:
+                    type: number
+                    example: 600
+                required:
+                  - allow
+                  - maxAge
+                example: &a2
+                  allow: *a1
+                  maxAge: 600
+              example: *a2
+        "401":
+          description: Token ausente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: unauthorized
+                required:
+                  - error
+                example: &a3
+                  error: unauthorized
+              example: *a3
+        "429":
+          description: Límite de preflight excedido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: too_many_requests
+                required:
+                  - error
+                example: &a4
+                  error: too_many_requests
+              example: *a4
+"
+`;

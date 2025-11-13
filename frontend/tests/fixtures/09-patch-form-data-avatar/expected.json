@@ -1,0 +1,14 @@
+{
+  "path": "/v1/users/{userId}/profile",
+  "method": "patch",
+  "parameters": {
+    "path": ["userId"]
+  },
+  "requestBodyContentType": "multipart/form-data",
+  "multipart": {
+    "text": ["displayName", "preferences"],
+    "binary": ["avatar"]
+  },
+  "responses": ["200", "400", "401"],
+  "securitySchemes": ["bearerAuth"]
+}

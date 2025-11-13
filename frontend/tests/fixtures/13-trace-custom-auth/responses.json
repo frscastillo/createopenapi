@@ -1,0 +1,20 @@
+[
+  {
+    "code": "200",
+    "description": "Echo exitoso",
+    "body": {
+      "headers": {
+        "Date": "Tue, 01 Nov 2025 12:00:00 GMT",
+        "Digest": "SHA-256=abcdef123456"
+      },
+      "method": "TRACE"
+    }
+  },
+  {
+    "code": "401",
+    "description": "Firma inválida",
+    "body": {
+      "error": "invalid_signature"
+    }
+  }
+]

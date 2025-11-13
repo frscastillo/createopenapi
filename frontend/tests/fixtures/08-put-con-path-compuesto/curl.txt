@@ -1,0 +1,1 @@
+curl -X PUT "https://api.example.com/v1/customers/{customerId}/addresses/{addressId}" -H "Content-Type: application/json" -d '{"street":"Calle Falsa 123","city":"Buenos Aires","primary":true}'

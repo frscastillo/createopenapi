@@ -1,0 +1,14 @@
+{
+  "path": "/v1/files/{fileId}",
+  "method": "patch",
+  "parameters": {
+    "path": ["fileId"]
+  },
+  "requestBodyContentType": "multipart/form-data",
+  "multipart": {
+    "binary": ["attachment"],
+    "text": ["status"]
+  },
+  "responses": ["200", "400"],
+  "securitySchemes": ["bearerAuth"]
+}

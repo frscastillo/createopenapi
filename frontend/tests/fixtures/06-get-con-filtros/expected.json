@@ -1,0 +1,9 @@
+{
+  "path": "/v1/products/search",
+  "method": "get",
+  "parameters": {
+    "query": ["keyword", "limit", "include", "locale"],
+    "header": ["X-Correlation-ID"]
+  },
+  "responses": ["200", "206", "429"]
+}

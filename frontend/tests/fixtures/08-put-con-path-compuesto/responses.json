@@ -1,0 +1,27 @@
+[
+  {
+    "code": "200",
+    "description": "Dirección actualizada",
+    "body": {
+      "addressId": "address-1",
+      "customerId": "cust-900",
+      "primary": true
+    }
+  },
+  {
+    "code": "400",
+    "description": "Datos incompletos",
+    "body": {
+      "error": "invalid_payload",
+      "missing": ["street"]
+    }
+  },
+  {
+    "code": "409",
+    "description": "Conflicto de dirección",
+    "body": {
+      "error": "primary_exists",
+      "message": "Another primary address already exists"
+    }
+  }
+]

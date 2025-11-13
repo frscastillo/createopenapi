@@ -1,0 +1,1 @@
+curl -X PATCH "https://api.example.com/v1/files/{fileId}" -H "Authorization: Bearer mocktoken" -F "status=archived" -F "attachment=@/tmp/report.pdf"

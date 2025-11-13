@@ -1,0 +1,9 @@
+{
+  "path": "/v1/orders/{orderId}",
+  "method": "put",
+  "parameters": {
+    "path": ["orderId"]
+  },
+  "requestBodyContentType": "application/json",
+  "responses": ["200", "404"]
+}

@@ -1,0 +1,21 @@
+[
+  {
+    "code": "204",
+    "description": "Token revocado"
+  },
+  {
+    "code": "403",
+    "description": "API Key inválida",
+    "body": {
+      "error": "forbidden",
+      "message": "Invalid API key"
+    }
+  },
+  {
+    "code": "404",
+    "description": "Token no encontrado",
+    "body": {
+      "error": "not_found"
+    }
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "code": "200",
+    "description": "Archivo actualizado",
+    "body": {
+      "fileId": "file_55",
+      "status": "archived"
+    }
+  },
+  {
+    "code": "400",
+    "description": "Error de entrada",
+    "body": {
+      "error": "invalid_status"
+    }
+  }
+]

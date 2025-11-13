@@ -1,0 +1,25 @@
+[
+  {
+    "code": "200",
+    "description": "Túnel establecido",
+    "body": {
+      "sessionId": "sess-9001",
+      "activeTargets": 5
+    }
+  },
+  {
+    "code": "502",
+    "description": "Destino no alcanzable",
+    "body": {
+      "error": "upstream_unavailable"
+    }
+  },
+  {
+    "code": "504",
+    "description": "Timeout del túnel",
+    "body": {
+      "error": "tunnel_timeout",
+      "retryAfter": 15
+    }
+  }
+]

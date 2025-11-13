@@ -1,0 +1,10 @@
+{
+  "path": "/v1/tokens/{tokenId}",
+  "method": "delete",
+  "parameters": {
+    "path": ["tokenId"],
+    "header": ["X-Requested-By"]
+  },
+  "responses": ["204", "403", "404"],
+  "securitySchemes": ["apikeyAuth"]
+}

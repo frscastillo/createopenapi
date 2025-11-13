@@ -1,0 +1,7 @@
+curl -X OPTIONS "https://api.example.com/v1/reporting/exports" \
+  -H "Access-Control-Request-Method: POST" \
+  -H "Access-Control-Request-Headers: Authorization, X-Request-ID, X-Trace-Token, Content-Type" \
+  -H "Origin: https://app.example.com" \
+  -H "X-Request-ID: req-123456" \
+  -H "X-Trace-Token: trace-abc-xyz" \
+  -H "User-Agent: stress-suite/1.0"

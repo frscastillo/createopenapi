@@ -1,0 +1,9 @@
+{
+  "path": "/v1/sessions/{sessionId}",
+  "method": "delete",
+  "parameters": {
+    "path": ["sessionId"]
+  },
+  "responses": ["204", "404"],
+  "securitySchemes": ["apikeyAuth"]
+}

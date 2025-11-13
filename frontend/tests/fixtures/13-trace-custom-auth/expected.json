@@ -1,0 +1,12 @@
+{
+  "path": "/v1/debug/echo",
+  "method": "trace",
+  "parameters": {
+    "header": [
+      "Date",
+      "Digest"
+    ]
+  },
+  "responses": ["200", "401"],
+  "securitySchemes": ["customAuth"]
+}

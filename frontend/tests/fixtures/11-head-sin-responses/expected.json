@@ -1,0 +1,9 @@
+{
+  "path": "/v1/resources/{resourceId}",
+  "method": "head",
+  "parameters": {
+    "path": ["resourceId"],
+    "header": ["If-None-Match"]
+  },
+  "responses": ["200"]
+}

@@ -1,0 +1,1 @@
+curl -X PATCH "https://api.example.com/v1/users/{userId}/profile" -H "Authorization: Bearer avatar-token" -F "displayName=Marcos" -F "avatar=@/tmp/avatar.png" -F "preferences={\"locale\":\"es-AR\"}"

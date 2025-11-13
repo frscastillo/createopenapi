@@ -1,0 +1,18 @@
+[
+  {
+    "code": "200",
+    "description": "Orden actualizada",
+    "body": {
+      "orderId": "order_123",
+      "status": "shipped"
+    }
+  },
+  {
+    "code": "404",
+    "description": "Orden no encontrada",
+    "body": {
+      "error": "not_found",
+      "message": "Order not found"
+    }
+  }
+]

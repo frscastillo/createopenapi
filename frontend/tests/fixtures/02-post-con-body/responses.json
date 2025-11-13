@@ -1,0 +1,24 @@
+[
+  {
+    "code": "201",
+    "description": "Usuario creado",
+    "body": {
+      "id": "user_901",
+      "name": "Laura",
+      "email": "laura@example.com"
+    }
+  },
+  {
+    "code": "400",
+    "description": "Datos inválidos",
+    "body": {
+      "error": "validation_error",
+      "fields": [
+        {
+          "name": "email",
+          "message": "Email inválido"
+        }
+      ]
+    }
+  }
+]

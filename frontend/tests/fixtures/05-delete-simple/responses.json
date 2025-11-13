@@ -1,0 +1,13 @@
+[
+  {
+    "code": "204",
+    "description": "Sesión eliminada"
+  },
+  {
+    "code": "404",
+    "description": "Sesión no encontrada",
+    "body": {
+      "error": "not_found"
+    }
+  }
+]
