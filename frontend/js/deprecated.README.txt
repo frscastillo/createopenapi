@@ -1,6 +1,0 @@
-Estos archivos JS han quedado obsoletos y serán eliminados:
-- curlConverter.js
-- jsonConverter.js
-- utils/validation.js
-
-Motivo: Toda la lógica fue migrada al backend y ya no se usan en el frontend. Si necesitas restaurar alguna función, consulta el backend o el historial de cambios.

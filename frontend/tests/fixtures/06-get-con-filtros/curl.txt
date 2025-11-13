@@ -1,1 +1,0 @@
-curl -X GET "https://api.example.com/v1/products/search?keyword=laptop&limit=10&include=reviews&locale=es-AR" -H "Accept: application/json" -H "X-Correlation-ID: abc-123"

@@ -1,1 +1,0 @@
-curl -X TRACE "https://api.example.com/v1/debug/echo" -H "Authorization: Signature keyId=\"client-1\",algorithm=\"hmac-sha256\",headers=\"(request-target) host date digest\",signature=\"base64signature==\"" -H "Date: Tue, 01 Nov 2025 12:00:00 GMT" -H "Digest: SHA-256=abcdef123456"

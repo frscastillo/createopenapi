@@ -1,9 +1,0 @@
-{
-  "path": "/v1/customers/{customerId}/addresses/{addressId}",
-  "method": "put",
-  "parameters": {
-    "path": ["customerId", "addressId"]
-  },
-  "requestBodyContentType": "application/json",
-  "responses": ["200", "400", "409"]
-}

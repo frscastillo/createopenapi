@@ -1,1 +1,0 @@
-curl -X GET "https://api.example.com/v1/products?category=electronics&page=2&sort=price" -H "Accept: application/json"

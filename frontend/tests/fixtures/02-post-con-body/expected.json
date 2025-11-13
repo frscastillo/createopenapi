@@ -1,7 +1,0 @@
-{
-  "path": "/v1/users",
-  "method": "post",
-  "requestBodyContentType": "application/json",
-  "responses": ["201", "400"],
-  "securitySchemes": ["bearerAuth"]
-}
