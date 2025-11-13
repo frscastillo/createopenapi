@@ -1,0 +1,38 @@
+{
+  "name": "CreateOpenAPI.com",
+  "short_name": "CreateOpenAPI",
+  "description": "Free CURL to OpenAPI converter - Generate API documentation instantly",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a365d",
+  "theme_color": "#3182ce",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["productivity", "developer", "utilities"],
+  "icons": [
+    {
+      "src": "images/icon-16.svg",
+      "sizes": "16x16",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "images/icon-32.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "images/icon-144.svg",
+      "sizes": "144x144",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Convert CURL",
+      "url": "/?action=convert",
+      "description": "Start converting a CURL command"
+    }
+  ]
+}
